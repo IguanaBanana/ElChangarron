@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DesarrolladoLabel = new System.Windows.Forms.Label();
             this.BananaLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -39,6 +39,9 @@
             this.dataGridProductos = new System.Windows.Forms.DataGridView();
             this.textCodigo = new System.Windows.Forms.TextBox();
             this.labelTotal = new System.Windows.Forms.Label();
+            this.textCantidad = new System.Windows.Forms.TextBox();
+            this.labelPago = new System.Windows.Forms.Label();
+            this.textPago = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductos)).BeginInit();
             this.SuspendLayout();
@@ -90,14 +93,14 @@
             // 
             // dataGridProductos
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProductos.Location = new System.Drawing.Point(22, 108);
             this.dataGridProductos.Name = "dataGridProductos";
@@ -127,11 +130,42 @@
             this.labelTotal.TabIndex = 7;
             this.labelTotal.Text = "Total: $0.00";
             // 
+            // textCantidad
+            // 
+            this.textCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCantidad.Location = new System.Drawing.Point(668, 84);
+            this.textCantidad.Name = "textCantidad";
+            this.textCantidad.Size = new System.Drawing.Size(100, 38);
+            this.textCantidad.TabIndex = 8;
+            this.textCantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EntCant);
+            // 
+            // labelPago
+            // 
+            this.labelPago.AutoSize = true;
+            this.labelPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPago.Location = new System.Drawing.Point(549, 156);
+            this.labelPago.Name = "labelPago";
+            this.labelPago.Size = new System.Drawing.Size(85, 32);
+            this.labelPago.TabIndex = 9;
+            this.labelPago.Text = "Pago";
+            // 
+            // textPago
+            // 
+            this.textPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textPago.Location = new System.Drawing.Point(640, 150);
+            this.textPago.Name = "textPago";
+            this.textPago.Size = new System.Drawing.Size(100, 38);
+            this.textPago.TabIndex = 10;
+            this.textPago.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textPago_KeyPress);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.textPago);
+            this.Controls.Add(this.labelPago);
+            this.Controls.Add(this.textCantidad);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.textCodigo);
             this.Controls.Add(this.dataGridProductos);
@@ -161,6 +195,9 @@
         private System.Windows.Forms.DataGridView dataGridProductos;
         private System.Windows.Forms.TextBox textCodigo;
         private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.TextBox textCantidad;
+        private System.Windows.Forms.Label labelPago;
+        private System.Windows.Forms.TextBox textPago;
     }
 }
 
