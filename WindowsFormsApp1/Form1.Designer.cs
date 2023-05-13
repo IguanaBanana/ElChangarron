@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.TienditaLabel = new System.Windows.Forms.Label();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DesarrolladoLabel = new System.Windows.Forms.Label();
             this.BananaLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -38,19 +38,10 @@
             this.LogoImagen = new System.Windows.Forms.PictureBox();
             this.dataGridProductos = new System.Windows.Forms.DataGridView();
             this.textCodigo = new System.Windows.Forms.TextBox();
+            this.labelTotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductos)).BeginInit();
             this.SuspendLayout();
-            // 
-            // TienditaLabel
-            // 
-            this.TienditaLabel.AutoSize = true;
-            this.TienditaLabel.Font = new System.Drawing.Font("Yu Gothic UI", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TienditaLabel.Location = new System.Drawing.Point(12, 9);
-            this.TienditaLabel.Name = "TienditaLabel";
-            this.TienditaLabel.Size = new System.Drawing.Size(308, 60);
-            this.TienditaLabel.TabIndex = 0;
-            this.TienditaLabel.Text = "El Changarron";
             // 
             // DesarrolladoLabel
             // 
@@ -74,6 +65,8 @@
             // 
             // timer1
             // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // HoraFecha
@@ -91,12 +84,20 @@
             this.LogoImagen.Location = new System.Drawing.Point(224, 264);
             this.LogoImagen.Name = "LogoImagen";
             this.LogoImagen.Size = new System.Drawing.Size(992, 154);
-            this.LogoImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.LogoImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.LogoImagen.TabIndex = 4;
             this.LogoImagen.TabStop = false;
             // 
             // dataGridProductos
             // 
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProductos.Location = new System.Drawing.Point(22, 108);
             this.dataGridProductos.Name = "dataGridProductos";
@@ -112,20 +113,32 @@
             this.textCodigo.Location = new System.Drawing.Point(280, 75);
             this.textCodigo.Name = "textCodigo";
             this.textCodigo.Size = new System.Drawing.Size(100, 38);
-            this.textCodigo.TabIndex = 6;
+            this.textCodigo.TabIndex = 0;
+            this.textCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.enter);
+            this.textCodigo.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.tab);
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(473, 206);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(177, 32);
+            this.labelTotal.TabIndex = 7;
+            this.labelTotal.Text = "Total: $0.00";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.textCodigo);
             this.Controls.Add(this.dataGridProductos);
             this.Controls.Add(this.LogoImagen);
             this.Controls.Add(this.HoraFecha);
             this.Controls.Add(this.BananaLabel);
             this.Controls.Add(this.DesarrolladoLabel);
-            this.Controls.Add(this.TienditaLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -140,8 +153,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label TienditaLabel;
         private System.Windows.Forms.Label DesarrolladoLabel;
         private System.Windows.Forms.Label BananaLabel;
         private System.Windows.Forms.Timer timer1;
@@ -149,6 +160,7 @@
         private System.Windows.Forms.PictureBox LogoImagen;
         private System.Windows.Forms.DataGridView dataGridProductos;
         private System.Windows.Forms.TextBox textCodigo;
+        private System.Windows.Forms.Label labelTotal;
     }
 }
 
