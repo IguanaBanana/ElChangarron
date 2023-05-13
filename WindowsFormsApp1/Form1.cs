@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace WindowsFormsApp1
 {
@@ -58,7 +59,7 @@ namespace WindowsFormsApp1
         {
             if (e.KeyChar == (char)13)
             {
-                MessageBox.Show(textCodigo.Text);
+                MessageBox.Show("SELECT * FROM productos WHERE codigo = " + "'" + textCodigo.Text + "'");
             }
         }
 
