@@ -82,24 +82,24 @@ namespace WindowsFormsApp1
         {
                 if (e.KeyChar == (char)13)
                 {
-                if (textCodigo.Text.Length >= 1)
-                {
-                    MessageBox.Show("SELECT * FROM productos WHERE codigo = " + "'" + textCodigo.Text + "'");
-                    textCantidad.Enabled = true;
-                    textCantidad.Focus();
-                }
-                else
-                {
-                    MessageBox.Show("Error en codigo.");
-                }
+                    if (textCodigo.Text.Length >= 1)
+                    {
+                        MessageBox.Show("SELECT * FROM productos WHERE codigo = " + "'" + textCodigo.Text + "'");
+                        textCantidad.Enabled = true;
+                        textCantidad.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en codigo.");
+                    }
 
                 }
-            if (e.KeyChar == (char)32)
-            {
-                textPago.Enabled = true;
-                textPago.Focus();
+                if (e.KeyChar == (char)32)
+                {
+                    textPago.Enabled = true;
+                    textPago.Focus();
+                }
             }
-        }
 
         private void tab(object sender, PreviewKeyDownEventArgs e)
         {
@@ -168,6 +168,11 @@ namespace WindowsFormsApp1
                 else
                 {
                     MessageBox.Show("Venta Exitosa. Su cambio es $" + feria + ". Gracias, vuelva pronto :).");
+                    printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
+                    if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        printDocument1.Print();
+                    }
                     dataGridProductos.Rows.Clear();
                     dataGridProductos.ReadOnly = true;
                     textPago.Clear();
@@ -176,6 +181,40 @@ namespace WindowsFormsApp1
                     textCodigo.Focus();
                 }
             }
+        }
+
+        int proCant, proPre, proTot, pos = 160;
+        string proNom;
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            //System.Drawing.Image img = System.Drawing.Image.FromFile("C:\Users\aneth\Downloads\ChangarroLogo.jpg");
+            //Point loc = new Point(Top, Top);
+            //e.Graphics.DrawImage(img, loc);
+            Bitmap myBitmap1 = new Bitmap(LogoImagen.Width, LogoImagen.Height);
+            LogoImagen.DrawToBitmap(myBitmap1, new Rectangle(0, 0, LogoImagen.Width ,LogoImagen.Height));
+            e.Graphics.DrawImage(myBitmap1, 0,0, 285, LogoImagen.Height);
+            e.Graphics.DrawString("CANT. NOMBRE PRECIO TOTAL", new Font ("Arial", 12), Brushes.Red, new Point(15,140));
+            foreach (DataGridViewRow row in dataGridProductos.Rows)
+            {
+                proCant = Convert.ToInt32(row.Cells[0].Value);
+                proNom = "" + row.Cells[1].Value;
+                proPre = Convert.ToInt32(row.Cells[2].Value);
+                proTot = Convert.ToInt32(row.Cells[3].Value);
+                e.Graphics.DrawString("" + proCant, new Font("Arial", 10), Brushes.Black, new Point(30, pos));
+                e.Graphics.DrawString("" + proNom, new Font("Arial", 6), Brushes.Black, new Point(65, pos));
+                e.Graphics.DrawString("" + proPre, new Font("Arial", 10), Brushes.Black, new Point(160, pos));
+                e.Graphics.DrawString("" + proTot, new Font("Arial", 10), Brushes.Black, new Point(230, pos));
+                pos = pos + 20;
+            }
+            double recibir = 0;
+            for (int i = 0; i < dataGridProductos.Rows.Count - 1; i++)
+            {
+                double total = Convert.ToDouble(dataGridProductos.Rows[i].Cells[0].Value.ToString()) * Convert.ToDouble(dataGridProductos.Rows[i].Cells[2].Value.ToString());
+                recibir += total;
+            }
+            e.Graphics.DrawString("Total: $" + recibir, new Font ("Arial", 15, FontStyle.Bold), Brushes.Black, new Point(150,pos + 50));
+            e.Graphics.DrawString(HoraFecha.Text, new Font("Arial", 6), Brushes.Black, new Point(Left, 550));
+            pos = 160;
         }
     }
 }
