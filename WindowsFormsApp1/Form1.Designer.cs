@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DesarrolladoLabel = new System.Windows.Forms.Label();
             this.BananaLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -44,6 +44,8 @@
             this.textPago = new System.Windows.Forms.TextBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.buttonTotal = new System.Windows.Forms.Button();
+            this.buttonPagar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductos)).BeginInit();
             this.SuspendLayout();
@@ -95,14 +97,14 @@
             // 
             // dataGridProductos
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridProductos.Location = new System.Drawing.Point(22, 108);
             this.dataGridProductos.Name = "dataGridProductos";
@@ -175,11 +177,35 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // buttonTotal
+            // 
+            this.buttonTotal.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTotal.Location = new System.Drawing.Point(417, 23);
+            this.buttonTotal.Name = "buttonTotal";
+            this.buttonTotal.Size = new System.Drawing.Size(125, 40);
+            this.buttonTotal.TabIndex = 11;
+            this.buttonTotal.Text = "Total";
+            this.buttonTotal.UseVisualStyleBackColor = true;
+            this.buttonTotal.Click += new System.EventHandler(this.buttonTotal_Click);
+            // 
+            // buttonPagar
+            // 
+            this.buttonPagar.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPagar.Location = new System.Drawing.Point(591, 21);
+            this.buttonPagar.Name = "buttonPagar";
+            this.buttonPagar.Size = new System.Drawing.Size(125, 40);
+            this.buttonPagar.TabIndex = 12;
+            this.buttonPagar.Text = "Pagar";
+            this.buttonPagar.UseVisualStyleBackColor = true;
+            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonPagar);
+            this.Controls.Add(this.buttonTotal);
             this.Controls.Add(this.textPago);
             this.Controls.Add(this.labelPago);
             this.Controls.Add(this.textCantidad);
@@ -217,6 +243,8 @@
         private System.Windows.Forms.TextBox textPago;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.Button buttonTotal;
+        private System.Windows.Forms.Button buttonPagar;
     }
 }
 

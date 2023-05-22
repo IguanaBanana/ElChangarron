@@ -70,7 +70,8 @@ namespace WindowsFormsApp1
             textPago.Location = new Point((this.Width/128)*118, (this.Height/16)*13);
             textPago.Width = labelTotal.Width - 25;
             labelTotal.Location = new Point((this.Width/8)*7, (this.Height/8)*7);
-
+            buttonPagar.Location = new Point(this.Width - buttonPagar.Width - 10, this.Height - textCodigo.Height - buttonPagar.Height - HoraFecha.Height);
+            buttonTotal.Location = new Point( 10,this.Height - textCodigo.Height - buttonTotal.Height - HoraFecha.Height);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -184,6 +185,43 @@ namespace WindowsFormsApp1
         }
 
         int proCant, proPre, proTot, pos = 160;
+
+        private void buttonPagar_Click(object sender, EventArgs e)
+        {
+            double recibir = 0;
+            for (int i = 0; i < dataGridProductos.Rows.Count - 1; i++)
+            {
+                double total = Convert.ToDouble(dataGridProductos.Rows[i].Cells[0].Value.ToString()) * Convert.ToDouble(dataGridProductos.Rows[i].Cells[2].Value.ToString());
+                recibir += total;
+            }
+            double feria = Convert.ToDouble(textPago.Text) - recibir;
+            if (feria < 0)
+            {
+                MessageBox.Show("Error en el pago");
+            }
+            else
+            {
+                MessageBox.Show("Venta Exitosa. Su cambio es $" + feria + ". Gracias, vuelva pronto :).");
+                printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
+                if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    printDocument1.Print();
+                }
+                dataGridProductos.Rows.Clear();
+                dataGridProductos.ReadOnly = true;
+                textPago.Clear();
+                labelTotal.Text = "Total: $0.00";
+                textCodigo.Enabled = true;
+                textCodigo.Focus();
+            }
+        }
+
+        private void buttonTotal_Click(object sender, EventArgs e)
+        {
+            textPago.Enabled = true;
+            textPago.Focus();
+        }
+
         string proNom;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
