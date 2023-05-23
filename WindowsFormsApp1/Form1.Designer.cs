@@ -46,6 +46,7 @@
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.buttonTotal = new System.Windows.Forms.Button();
             this.buttonPagar = new System.Windows.Forms.Button();
+            this.buttonLibreria = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.LogoImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridProductos)).BeginInit();
             this.SuspendLayout();
@@ -182,7 +183,7 @@
             this.buttonTotal.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonTotal.Location = new System.Drawing.Point(417, 23);
             this.buttonTotal.Name = "buttonTotal";
-            this.buttonTotal.Size = new System.Drawing.Size(125, 40);
+            this.buttonTotal.Size = new System.Drawing.Size(150, 60);
             this.buttonTotal.TabIndex = 11;
             this.buttonTotal.Text = "Total";
             this.buttonTotal.UseVisualStyleBackColor = true;
@@ -199,11 +200,23 @@
             this.buttonPagar.UseVisualStyleBackColor = true;
             this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
             // 
+            // buttonLibreria
+            // 
+            this.buttonLibreria.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonLibreria.Location = new System.Drawing.Point(467, 108);
+            this.buttonLibreria.Name = "buttonLibreria";
+            this.buttonLibreria.Size = new System.Drawing.Size(150, 60);
+            this.buttonLibreria.TabIndex = 13;
+            this.buttonLibreria.Text = "Libreria";
+            this.buttonLibreria.UseVisualStyleBackColor = true;
+            this.buttonLibreria.Click += new System.EventHandler(this.buttonRecarga_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonLibreria);
             this.Controls.Add(this.buttonPagar);
             this.Controls.Add(this.buttonTotal);
             this.Controls.Add(this.textPago);
@@ -245,6 +258,7 @@
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Windows.Forms.Button buttonTotal;
         private System.Windows.Forms.Button buttonPagar;
+        private System.Windows.Forms.Button buttonLibreria;
     }
 }
 

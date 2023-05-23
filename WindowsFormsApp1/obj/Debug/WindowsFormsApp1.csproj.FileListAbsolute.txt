@@ -48,3 +48,6 @@ C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp
 C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete
+C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Recarga.resources
+C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\protobuf-net.dll
+C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\protobuf-net.xml

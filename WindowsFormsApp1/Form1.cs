@@ -72,6 +72,8 @@ namespace WindowsFormsApp1
             labelTotal.Location = new Point((this.Width/8)*7, (this.Height/8)*7);
             buttonPagar.Location = new Point(this.Width - buttonPagar.Width - 10, this.Height - textCodigo.Height - buttonPagar.Height - HoraFecha.Height);
             buttonTotal.Location = new Point( 10,this.Height - textCodigo.Height - buttonTotal.Height - HoraFecha.Height);
+            buttonLibreria.Location = new Point(10, this.Height - textCodigo.Height - buttonTotal.Height - HoraFecha.Height - buttonLibreria.Height);
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -214,6 +216,13 @@ namespace WindowsFormsApp1
                 textCodigo.Enabled = true;
                 textCodigo.Focus();
             }
+        }
+
+        private void buttonRecarga_Click(object sender, EventArgs e)
+        {
+           Recarga reca = new Recarga();
+            reca.ShowDialog();
+
         }
 
         private void buttonTotal_Click(object sender, EventArgs e)
