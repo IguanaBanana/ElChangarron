@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using LibPrintTicket;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
@@ -18,6 +19,8 @@ namespace WindowsFormsApp1
         MySqlCommand comando;
         //el obj para recibir datos de SELECT
         MySqlDataReader dr;
+        string comandoSelect;
+
         public Form1()
         {
             InitializeComponent();
@@ -171,6 +174,19 @@ namespace WindowsFormsApp1
                 else
                 {
                     MessageBox.Show("Venta Exitosa. Su cambio es $" + feria + ". Gracias, vuelva pronto :).");
+                    comandoSelect = "INSERT INTO ventas (fecha,hora) VALUES (CURDATE(),CURTIME())";
+                    con.Open();
+                    comando = new MySqlCommand(comandoSelect, con);
+                    comando.ExecuteNonQuery();
+                    comandoSelect = "SELECT LAST_INSERT_ID() FROM ventas";
+                    comando = new MySqlCommand(comandoSelect, con);
+                    String id = (comando.ExecuteScalar().ToString());
+                    foreach (DataGridViewRow dr in dataGridProductos.Rows)
+                    {
+                        comandoSelect = $"INSERT INTO ventas_detalles(id_venta,cantidad,nombre,precio) VALUES ('{id}','{dr.Cells[0].Value}','{dr.Cells[1].Value}','{dr.Cells[2].Value}')";
+                        comando = new MySqlCommand(comandoSelect, con);
+                        comando.ExecuteNonQuery();
+                    }
                     printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("pprnm", 285, 600);
                     if (printPreviewDialog1.ShowDialog() == DialogResult.OK)
                     {
@@ -220,9 +236,25 @@ namespace WindowsFormsApp1
 
         private void buttonRecarga_Click(object sender, EventArgs e)
         {
-           Recarga reca = new Recarga();
+            Recarga reca = new Recarga();
             reca.ShowDialog();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Ticket tiquet = new Ticket();
+                tiquet.AddSubHeaderLine(DateTime.Now.ToShortDateString().ToString());
+                tiquet.AddSubHeaderLine(DateTime.Now.ToShortTimeString().ToString());
+                tiquet.AddFooterLine("Gracias por su compra");
+                tiquet.PrintTicket("EC-PM-5890X");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al conectar a la impresora");
+            }
         }
 
         private void buttonTotal_Click(object sender, EventArgs e)

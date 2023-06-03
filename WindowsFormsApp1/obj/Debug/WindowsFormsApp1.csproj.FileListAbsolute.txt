@@ -51,3 +51,4 @@ C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp
 C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Recarga.resources
 C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\protobuf-net.dll
 C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\protobuf-net.xml
+C:\Users\aneth\OneDrive\Escritorio\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\LibPrintTicket.dll
