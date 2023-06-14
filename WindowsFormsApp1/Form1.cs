@@ -266,13 +266,10 @@ namespace WindowsFormsApp1
         string proNom;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //System.Drawing.Image img = System.Drawing.Image.FromFile("C:\Users\aneth\Downloads\ChangarroLogo.jpg");
-            //Point loc = new Point(Top, Top);
-            //e.Graphics.DrawImage(img, loc);
             Bitmap myBitmap1 = new Bitmap(LogoImagen.Width, LogoImagen.Height);
             LogoImagen.DrawToBitmap(myBitmap1, new Rectangle(0, 0, LogoImagen.Width ,LogoImagen.Height));
-            e.Graphics.DrawImage(myBitmap1, 0,0, 285, LogoImagen.Height);
-            e.Graphics.DrawString("CANT. NOMBRE PRECIO TOTAL", new Font ("Arial", 12), Brushes.Red, new Point(15,140));
+            e.Graphics.DrawImage(myBitmap1, 0,0, 207, LogoImagen.Height);
+            e.Graphics.DrawString("CANT. NOMBRE PRECIO TOTAL", new Font ("Arial", 8), Brushes.Red, new Point(10,140));
             foreach (DataGridViewRow row in dataGridProductos.Rows)
             {
                 proCant = Convert.ToInt32(row.Cells[0].Value);
